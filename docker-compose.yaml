@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    image: nitipanp/pushruntime
+    ports:
+      - 8888:80
+    environment:
+      XDEBUG_CONFIG: remote_host=host.docker.internal remote_port=9000 remote_enable=1
+    volumes:
+      - ./src:/var/www/html
+      - ./apache2.conf:/etc/apache2/apache2.conf:ro

@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   web:
     image: nitipanp/pushruntime
@@ -9,3 +9,18 @@ services:
     volumes:
       - ./src:/var/www/html
       - ./apache2.conf:/etc/apache2/apache2.conf:ro
+
+  db:
+    image: mysql:5.6
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=crm
+    volumes:
+      - ./tmp/mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=db
+    ports:
+      - 8889:80

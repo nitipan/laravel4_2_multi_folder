@@ -2,6 +2,19 @@
 
 @section('content')
 
+@foreach ($users as $user)
+<tr>
+    <!-- Task Name -->
+    <td class="table-text">
+        <div>{{ $user->email }}</div>
+    </td>
+
+    <td>
+        <!-- TODO: Delete Button -->
+    </td>
+</tr>
+@endforeach
+
 <h2>Register</h2>
 <form method="POST" action="/register">
     <div class="form-group">

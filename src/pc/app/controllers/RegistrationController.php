@@ -4,6 +4,12 @@ class RegistrationController extends BaseController
 {
     public function create()
     {
-        return View::make('registration.create');
+        $users = User::all();
+        // $user  = new User;
+        // $user->email = 'test';
+        // $user->save();
+        return View::make('registration.create', [
+            'users' => $users
+        ]);
     }
 }
